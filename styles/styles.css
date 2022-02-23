@@ -1,0 +1,149 @@
+/* general rules */
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #001a1a;
+}
+
+:root {
+    --main-color: #28bd81;
+    --secondary-color: #2acaca;
+    --dark-color: #001a1a;
+    --background-color: #e6fff5;
+    --main-gradient: linear-gradient(90deg, var(--main-color), var(--secondary-color));
+    --main-box-shadow: 0 2px 5px 0px rgba(0, 0, 0, .1);
+    --main-transition: .5s;
+    /* responsive variables */
+    --large-screen: 850spx;
+    --medium-screen: 650px;
+    --tablets-screen: 450px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    text-transform: capitalize;
+    background-color: var(--background-color);
+}
+
+i {
+    cursor: pointer;
+}
+
+.container {
+    width: 70vw;
+    margin: 0 auto;
+}
+
+
+/* main rules */
+
+
+/* -------------------- header start -------------------- */
+header {
+    background-color: #fff;
+    box-shadow: var(--main-box-shadow);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em 0;
+}
+
+.drop-menu {
+    position: relative;
+    
+}
+
+.drop-menu i {
+    font-size: 1.8em;
+    transition: var(--main-transition);
+}
+
+.menu-items {
+    position: absolute;
+    right: 0;
+    top: 2em;
+    font-size: 1.3em;
+    width: 150px;
+    background-color: #001a1a;
+    border: 1px solid var(--dark-color);
+    border-bottom: none;
+    box-shadow: var(--main-box-shadow);
+    /* dynamic styles */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: var(--main-transition);
+}
+
+.menu-items::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -11px;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--dark-color);
+}
+
+.menu-items li {
+    list-style-type: none;
+    padding: .5em;
+    background-color: #fff;
+    border-bottom: 1.5px solid var(--dark-color);
+    cursor: pointer;
+    transition: var(--main-transition);
+}
+
+/* dynamic styles and javascript classes */
+.drop-menu:hover .menu-items, .active-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.menu-items li:hover {
+    background: var(--main-gradient);
+    color: #fff;
+    padding-left: 1em;
+}
+
+.drop-menu:hover i, .active-menu-icon {
+    transform: rotate(90deg);
+}
+/* -------------------- header end -------------------- */
+
+
+/* -------------------- responsive rules -------------------- */
+/* @media (max-width: 950px) {
+    .container {
+        width: var(--large-screen);
+    }
+} */
+
+/* @media (min-width: 750px) {
+    .container {
+        width: var(--large-screen);
+    }
+}
+
+@media (min-width: 550px) {
+    .container {
+        width: var(--medium-screen);
+    }
+}
+
+@media (max-width: 350px) {
+    .container {
+        width: 100vw;
+        padding: 0 25px;
+    }
+} */
