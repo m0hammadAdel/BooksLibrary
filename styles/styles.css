@@ -6,7 +6,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #001a1a;
 }
 
 :root {
@@ -16,7 +15,7 @@
     --background-color: #e6fff5;
     --main-gradient: linear-gradient(90deg, var(--main-color), var(--secondary-color));
     --main-box-shadow: 0 2px 5px 0px rgba(0, 0, 0, .1);
-    --main-transition: .5s;
+    --main-transition: .4s;
     /* responsive variables */
     --large-screen: 850spx;
     --medium-screen: 650px;
@@ -27,9 +26,13 @@ body {
     font-family: 'Roboto', sans-serif;
     text-transform: capitalize;
     background-color: var(--background-color);
+    color: var(--dark-color);
+    height: 200vh;
 }
 
-i {
+button {
+    border: none;
+    background-color: transparent;
     cursor: pointer;
 }
 
@@ -38,7 +41,22 @@ i {
     margin: 0 auto;
 }
 
+/* dynamic drop down */
+.menu-items,
+.form-container {
+    opacity: 0;
+    pointer-events: none;
+    margin-top: -10px;
+    transition: var(--main-transition);
+}
 
+.drop-menu:hover .menu-items,
+.active-menu,
+.display-form {
+    opacity: 1;
+    margin-top: 0;
+    pointer-events: auto;
+}
 /* main rules */
 
 
@@ -63,23 +81,20 @@ header .container {
 .drop-menu i {
     font-size: 1.8em;
     transition: var(--main-transition);
+    cursor: pointer;
 }
 
 .menu-items {
     position: absolute;
     right: 0;
     top: 2em;
+    z-index: 1;
     font-size: 1.3em;
     width: 150px;
     background-color: #001a1a;
     border: 1px solid var(--dark-color);
     border-bottom: none;
     box-shadow: var(--main-box-shadow);
-    /* dynamic styles */
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-10px);
-    transition: var(--main-transition);
 }
 
 .menu-items::before {
@@ -103,13 +118,6 @@ header .container {
     transition: var(--main-transition);
 }
 
-/* dynamic styles and javascript classes */
-.drop-menu:hover .menu-items, .active-menu {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-}
-
 .menu-items li:hover {
     background: var(--main-gradient);
     color: #fff;
@@ -121,6 +129,135 @@ header .container {
 }
 /* -------------------- header end -------------------- */
 
+/* -------------------- main form start -------------------- */
+.form-button {
+    position: fixed;
+    bottom: 1.5em;
+    right: 1.5em;
+    z-index: 3;
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    background-color: var(--background-color);
+    box-shadow: var(--main-box-shadow);
+    transition: var(--main-transition);
+}
+
+.form-button:hover, .form-button-clicked {
+    transform: scale(1.15, 1.15) rotate(90deg);
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.form-button-clicked {
+    transform: rotate(45deg) scale(1.15, 1.15) !important;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: inherit;
+    background-color: rgba(0, 0, 0, .3);
+    color: #1c8058;
+}
+
+.new-book {
+    position: fixed;
+    z-index: 4;
+    margin-top: 15vh;
+    width: 400px;
+    padding: 1.5em;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.field *{
+    display: block;
+    margin-bottom: .3em;
+    font-size: 1.1rem;
+}
+
+.field + .field {
+    margin-top: 1em;
+}
+
+.field input {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--main-color)
+}
+
+#new-category {
+    display: flex;
+    justify-content: center;
+    border: none;
+    margin: 1.5em 0;
+}
+
+.radio {
+    margin: 1em 0;
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: var(--main-box-shadow);
+}
+
+.radio-input {
+    display: none;
+}
+
+.radio-label {
+    padding: .4em .8em;
+    background-color: #1c8058;
+    color: #fff;
+    cursor: pointer;
+    transition: var(--main-transition);
+}
+
+.radio-label:not(:last-of-type) {
+    border-right: 1px solid #1f5740;
+}
+
+.radio-input:checked + .radio-label {
+    background-color: #1f5740;
+}
+
+.new-buttons {
+    width: fit-content;
+    margin-left:auto;
+}
+
+.new-btn {
+    padding: .5em .8em;
+    margin-left: 1em;
+    border-radius: 12px;
+    border: 1px solid #1c8058;
+    color: #1c8058;
+    transition: var(--main-transition);
+}
+
+.new-btn:hover {
+    background-color: #1c8058;
+    color: #fff;
+}
+
+[data-id="new-cancel"] {
+    border-color: #999;
+    color: #999;
+}
+
+[data-id="new-cancel"]:hover {
+    background-color: #999;
+    color: #fff;
+}
+/* -------------------- main form end -------------------- */
 
 /* -------------------- responsive rules -------------------- */
 /* @media (max-width: 950px) {

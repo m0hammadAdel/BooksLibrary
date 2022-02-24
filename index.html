@@ -14,10 +14,51 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- -------------------- main form start -------------------- -->
+    <button class="form-button" data-id="showForm" title="add book">
+        <i class="fa-solid fa-plus" data-id="showForm"></i>
+    </button>
+    <div class="form-container">
+        <form class="new-book">
+            <div class="field">
+                <label for="new-title">title</label>
+                <input type="text" id="new-title">
+            </div>
+            <div class="field">
+                <label for="new-author">author</label>
+                <input type="text" id="new-author">
+            </div>
+            <div class="field">
+                <label for="new-pages">pages number</label>
+                <input type="number" id="new-pages">
+            </div>
+            <div class="field">
+                <label for="new-url">cover url</label>
+                <input type="text" id="new-url">
+            </div>
+            <fieldset id="new-category">
+                <legend>choose your plan</legend>
+                <div class="radio">
+                    <input class="radio-input" id="reading" type="radio" value="reading" name="new-category" checked>
+                    <label for="reading" class="radio-label">reading</label>
+                    <input class="radio-input" id="wish-list" type="radio" value="wishList" name="new-category">
+                    <label for="wish-list" class="radio-label">wish list</label>
+                    <input class="radio-input" id="done" type="radio" value="done" name="new-category">
+                    <label for="done" class="radio-label">done</label>
+                </div>
+            </fieldset>
+            <div class="new-buttons">
+                <button class="new-btn" data-id="new-cancel">cancel</button>
+                <button class="new-btn" data-id="new-add">add book</button>
+            </div>
+        </form>
+    </div>
+    <!-- -------------------- main form end -------------------- -->
+
     <!-- -------------------- header start -------------------- -->
     <header class="header">
         <div class="container">
-            <h1 class="page-title">books library</h1>
+            <h1 class="page-title">library</h1>
             <div class="drop-menu" data-toggle="dropDownMenu">
                 <i class="fa-solid fa-bars class" data-toggle="true"></i>
                 <ul class="menu-items">
