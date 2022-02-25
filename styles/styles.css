@@ -27,7 +27,6 @@ body {
     text-transform: capitalize;
     background-color: var(--background-color);
     color: var(--dark-color);
-    height: 200vh;
 }
 
 button {
@@ -118,7 +117,7 @@ header .container {
     transition: var(--main-transition);
 }
 
-.menu-items li:hover {
+.menu-items li:hover, .active-item {
     background: var(--main-gradient);
     color: #fff;
     padding-left: 1em;
@@ -147,7 +146,7 @@ header .container {
 }
 
 .form-button:hover, .form-button-clicked {
-    transform: scale(1.15, 1.15) rotate(90deg);
+    transform: scale(1.15, 1.15) rotate(-90deg);
     background-color: var(--main-color);
     color: #fff;
 }
@@ -162,7 +161,7 @@ header .container {
     position: absolute;
     z-index: 2;
     width: 100%;
-    height: inherit;
+    height:100%;
     background-color: rgba(0, 0, 0, .3);
     color: #1c8058;
 }
@@ -191,7 +190,20 @@ header .container {
     width: 100%;
     border: none;
     outline: none;
-    border-bottom: 1px solid var(--main-color)
+    border-bottom: 1px solid var(--main-color);
+}
+
+/* hide arrows for number filed */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 #new-category {
@@ -248,16 +260,40 @@ header .container {
     color: #fff;
 }
 
-[data-id="new-cancel"] {
+.cancel {
     border-color: #999;
     color: #999;
 }
 
-[data-id="new-cancel"]:hover {
+.cancel:hover {
     background-color: #999;
     color: #fff;
 }
 /* -------------------- main form end -------------------- */
+
+/* -------------------- main library start -------------------- */
+.category {
+    margin: 1.5em 0;
+    transition: var(--main-transition);
+}
+
+.category-hide {
+    transform: translateY(20vh);
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+
+
+.category-title {
+    padding: .5em 0;
+    margin: .8em 0;
+    border-bottom: 1px solid var(--main-color)
+}
+
+
+/* -------------------- main library end -------------------- */
 
 /* -------------------- responsive rules -------------------- */
 /* @media (max-width: 950px) {

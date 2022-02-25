@@ -48,8 +48,8 @@
                 </div>
             </fieldset>
             <div class="new-buttons">
-                <button class="new-btn" data-id="new-cancel">cancel</button>
-                <button class="new-btn" data-id="new-add">add book</button>
+                <button class="new-btn cancel" data-id="newCancel">cancel</button>
+                <button class="new-btn" data-id="addBook">add book</button>
             </div>
         </form>
     </div>
@@ -62,7 +62,7 @@
             <div class="drop-menu" data-toggle="dropDownMenu">
                 <i class="fa-solid fa-bars class" data-toggle="true"></i>
                 <ul class="menu-items">
-                    <li data-category="all">all</li>
+                    <li data-category="all" class="active-item">all</li>
                     <li data-category="reading">reading</li>
                     <li data-category="wishList">wish list</li>
                     <li data-category="done">done</li>
@@ -71,6 +71,37 @@
         </div>
     </header>
     <!-- -------------------- header end -------------------- -->
+    
+    <!-- -------------------- main start -------------------- -->
+    <main class="container">
+        <!-- category start -->
+        <section class="category" data-category="reading">
+            <h2 class="category-title">reading</h2>
+            <div class="books-container">
+                <p>this shelf is empty</p>
+            </div>
+        </section>
+        <!-- category end -->
+
+        <!-- category start -->
+        <section class="category" data-category="wishList">
+            <h2 class="category-title">wish list</h2>
+            <div class="books-container">
+                <p>this shelf is empty</p>
+            </div>
+        </section>
+        <!-- category end -->
+
+        <!-- category start -->
+        <section class="category" data-category="done">
+            <h2 class="category-title">done</h2>
+            <div class="books-container">
+                <p>this shelf is empty</p>
+            </div>
+        </section>
+        <!-- category end -->
+    </main>
+    <!-- -------------------- main end -------------------- -->
     <script src="app.js"></script>
 </body>
 </html>
