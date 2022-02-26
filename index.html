@@ -75,16 +75,67 @@
     <!-- -------------------- main start -------------------- -->
     <main class="container">
         <!-- category start -->
-        <section class="category" data-category="reading">
+        <section class="category" data-section="reading">
             <h2 class="category-title">reading</h2>
             <div class="books-container">
-                <p>this shelf is empty</p>
+                <article class="book">
+                    <div class="front">
+                        <img src="https://i.egycdn.com/pic/WmFwZndlY21FbUV2TlRhY21FbWJsd2R6eGFtYg.jpg" alt="">
+                        <div class="info">
+                            <h3 class="title">the hobbit</h3>
+                            <p class="author">alan turing</p>
+                            <p class="number">212</p>
+                        </div>
+                        <div class="show-more">
+                            <button title="edit" data-id="showMore">
+                                <i class="fa-solid fa-angles-right" data-id="showMore"></i>
+                            </button>
+                            <p>edit</p>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <img src="https://i.egycdn.com/pic/WmFwZndlY21FbUV2TlRhY21FbWJsd2R6eGFtYg.jpg" alt="">
+                        <form class="book-form">
+                            <div class="field">
+                                <label for="new-title">title</label>
+                                <input type="text" id="new-title">
+                            </div>
+                            <div class="field">
+                                <label for="new-author">author</label>
+                                <input type="text" id="new-author">
+                            </div>
+                            <div class="field">
+                                <label for="new-pages">pages number</label>
+                                <input type="number" id="new-pages">
+                            </div>
+                            <div class="field">
+                                <label for="new-url">cover url</label>
+                                <input type="text" id="new-url">
+                            </div>
+                            <fieldset id="book-category">
+                                <legend>choose your plan</legend>
+                                <div class="radio">
+                                    <input class="radio-input" id="reading" type="radio" value="reading" name="book-category" checked>
+                                    <label for="reading" class="radio-label">reading</label>
+                                    <input class="radio-input" id="wish-list" type="radio" value="wishList" name="book-category">
+                                    <label for="wish-list" class="radio-label">wish list</label>
+                                    <input class="radio-input" id="done" type="radio" value="done" name="book-category">
+                                    <label for="done" class="radio-label">done</label>
+                                </div>
+                            </fieldset>
+                            <div class="new-buttons">
+                                <button class="new-btn cancel" data-id="cancel">cancel</button>
+                                <button class="new-btn" data-id="save">save</button>
+                            </div>
+                        </form>
+                    </div>
+                </article>
             </div>
         </section>
         <!-- category end -->
 
         <!-- category start -->
-        <section class="category" data-category="wishList">
+        <section class="category" data-section="wishList">
             <h2 class="category-title">wish list</h2>
             <div class="books-container">
                 <p>this shelf is empty</p>
@@ -93,7 +144,7 @@
         <!-- category end -->
 
         <!-- category start -->
-        <section class="category" data-category="done">
+        <section class="category" data-section="done">
             <h2 class="category-title">done</h2>
             <div class="books-container">
                 <p>this shelf is empty</p>
