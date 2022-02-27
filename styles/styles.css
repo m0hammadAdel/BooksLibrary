@@ -16,10 +16,6 @@
     --main-gradient: linear-gradient(90deg, var(--main-color), var(--secondary-color));
     --main-box-shadow: 0 2px 5px 0px rgba(0, 0, 0, .1);
     --main-transition: .4s;
-    /* responsive variables */
-    --large-screen: 850spx;
-    --medium-screen: 650px;
-    --tablets-screen: 450px;
 }
 
 body {
@@ -33,10 +29,11 @@ button {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 .container {
-    width: 70vw;
+    width: 950px;
     margin: 0 auto;
 }
 
@@ -56,6 +53,8 @@ button {
     margin-top: 0;
     pointer-events: auto;
 }
+
+
 /* main rules */
 
 
@@ -158,10 +157,11 @@ header .container {
 .form-container {
     display: flex;
     justify-content: center;
-    position: absolute;
+    align-items: center;
+    position: fixed;
     z-index: 2;
-    width: 100%;
-    height:100%;
+    width: 100vw;
+    height: 100vh;
     background-color: rgba(0, 0, 0, .3);
     color: #1c8058;
 }
@@ -169,7 +169,6 @@ header .container {
 .new-book {
     position: fixed;
     z-index: 4;
-    margin-top: 15vh;
     width: 400px;
     padding: 1.5em;
     background-color: #fff;
@@ -270,6 +269,16 @@ input[type=number] {
     background-color: #999;
     color: #fff;
 }
+
+.delete {
+    color: #df2e2e;
+    border-color: #df2e2e;
+}
+
+.delete:hover {
+    background-color: #df2e2e;
+    color: #fff;
+}
 /* -------------------- main form end -------------------- */
 
 /* -------------------- main library start -------------------- */
@@ -293,9 +302,15 @@ input[type=number] {
     border-bottom: 1px solid var(--main-color)
 }
 
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+}
+
 /* book rules */
 .book {
-    width: 300px;
+    width: 100%;
     height: 400px;
     position: relative;
     transform-style: preserve-3d;
@@ -425,39 +440,103 @@ input[type=number] {
     right: 1em;
 }
 
-.book-form [data-id="save"] {
-    color: #f7f7f7;
-    border-color: #f7f7f7;
+.category-btns {
+    margin-top: 2em;
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: var(--main-box-shadow);
 }
 
-.book-form [data-id="save"]:hover {
-    color: var(--main-color);
-    background-color: #f7f7f7;
+.category-btn {
+    font-size: 1em;
+    padding: .4em .8em;
+    background-color: #1c8058;
+    color: #fff;
+    transition: var(--main-transition);
+}
+
+.category-btn:not(:last-of-type) {
+    border-right: 1px solid #1f5740;
+}
+
+.active-category-btn {
+    background-color: #1f5740;
 }
 /* -------------------- main library end -------------------- */
 
 /* -------------------- responsive rules -------------------- */
-/* @media (max-width: 950px) {
+@media (max-width: 1000px) {
     .container {
-        width: var(--large-screen);
+        width: 800px;
     }
-} */
 
-/* @media (min-width: 750px) {
-    .container {
-        width: var(--large-screen);
+    .books-container .book {
+        height: 350px;
+    }
+
+    .book-form .field{
+        font-size: .8em;
+    }
+
+    .book-form .new-buttons *{
+        font-size: .8em;
     }
 }
 
-@media (min-width: 550px) {
+@media (max-width: 900px) {
     .container {
-        width: var(--medium-screen);
+        width: 700px;
+    }
+
+    .category .books-container {
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+
+    .books-container .book {
+        height: 400px;
+    }
+}
+
+@media (max-width: 750px) {
+    .container {
+        width: 500px;
+    }
+
+    .books-container .book {
+        height: 300px;
+    }
+
+    .book-form * {
+        font-size: .9em;
+    }
+}
+
+@media (max-width: 550px) {
+    .container {
+        width: calc(100vw - 3em);
+        margin: 0 1.5em;
+    }
+
+    .category .books-container {
+        display: block;
+    }
+
+    .books-container .book {
+        width: 300px;
+        height: 400px;
+        margin: 1em auto;
+    }
+
+    .form-container .new-book {
+        width: 100vw;
     }
 }
 
 @media (max-width: 350px) {
-    .container {
-        width: 100vw;
-        padding: 0 25px;
+    .books-container .book {
+        width: 100%;
+        height: 330px;
     }
-} */
+}

@@ -22,15 +22,15 @@
         <form class="new-book">
             <div class="field">
                 <label for="new-title">title</label>
-                <input type="text" id="new-title">
+                <input type="text" id="new-title" required>
             </div>
             <div class="field">
                 <label for="new-author">author</label>
-                <input type="text" id="new-author">
+                <input type="text" id="new-author" required>
             </div>
             <div class="field">
                 <label for="new-pages">pages number</label>
-                <input type="number" id="new-pages">
+                <input type="number" id="new-pages" required>
             </div>
             <div class="field">
                 <label for="new-url">cover url</label>
@@ -49,6 +49,7 @@
             </fieldset>
             <div class="new-buttons">
                 <button class="new-btn cancel" data-id="newCancel">cancel</button>
+                <button class="new-btn cancel" data-id="newClear">clear</button>
                 <button class="new-btn" data-id="addBook">add book</button>
             </div>
         </form>
@@ -78,7 +79,7 @@
         <section class="category" data-section="reading">
             <h2 class="category-title">reading</h2>
             <div class="books-container">
-                <article class="book">
+                <article class="book" data-bookcat="reading">
                     <div class="front">
                         <img src="https://i.egycdn.com/pic/WmFwZndlY21FbUV2TlRhY21FbWJsd2R6eGFtYg.jpg" alt="">
                         <div class="info">
@@ -97,34 +98,29 @@
                         <img src="https://i.egycdn.com/pic/WmFwZndlY21FbUV2TlRhY21FbWJsd2R6eGFtYg.jpg" alt="">
                         <form class="book-form">
                             <div class="field">
-                                <label for="new-title">title</label>
-                                <input type="text" id="new-title">
+                                <label>title</label>
+                                <input type="text" class="edit-title">
                             </div>
                             <div class="field">
-                                <label for="new-author">author</label>
-                                <input type="text" id="new-author">
+                                <label>author</label>
+                                <input type="text" class="edit-author">
                             </div>
                             <div class="field">
-                                <label for="new-pages">pages number</label>
-                                <input type="number" id="new-pages">
+                                <label>pages</label>
+                                <input type="number" class="edit-pages">
                             </div>
                             <div class="field">
-                                <label for="new-url">cover url</label>
-                                <input type="text" id="new-url">
+                                <label>cover url</label>
+                                <input type="text" class="edit-url">
                             </div>
-                            <fieldset id="book-category">
-                                <legend>choose your plan</legend>
-                                <div class="radio">
-                                    <input class="radio-input" id="reading" type="radio" value="reading" name="book-category" checked>
-                                    <label for="reading" class="radio-label">reading</label>
-                                    <input class="radio-input" id="wish-list" type="radio" value="wishList" name="book-category">
-                                    <label for="wish-list" class="radio-label">wish list</label>
-                                    <input class="radio-input" id="done" type="radio" value="done" name="book-category">
-                                    <label for="done" class="radio-label">done</label>
-                                </div>
-                            </fieldset>
+                            <div class="category-btns">
+                                <button class="category-btn" data-book="reading">reading</button>
+                                <button class="category-btn" data-book="wishList">wish list</button>
+                                <button class="category-btn" data-book="done">done</button>
+                            </div>
                             <div class="new-buttons">
                                 <button class="new-btn cancel" data-id="cancel">cancel</button>
+                                <button class="new-btn delete" data-id="delete">delete</button>
                                 <button class="new-btn" data-id="save">save</button>
                             </div>
                         </form>
