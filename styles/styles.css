@@ -463,6 +463,18 @@ input[type=number] {
 .active-category-btn {
     background-color: #1f5740;
 }
+
+.new-buttons [data-id="save"] {
+    border-color: white;
+    color: white;
+}
+
+.new-buttons [data-id="save"]:hover {
+    border-color: var(--main-color);
+    background-color: var(--main-color);
+    color: #fff;
+}
+
 /* -------------------- main library end -------------------- */
 
 /* -------------------- responsive rules -------------------- */
